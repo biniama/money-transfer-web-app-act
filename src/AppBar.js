@@ -2,8 +2,12 @@ import React from 'react';
 
 import { AppBar, Toolbar, IconButton, Typography, Button } from '@material-ui/core';
 import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
+import { useHistory } from 'react-router-dom';
 
 const MTAppBar = () => {
+
+    let history = useHistory();
+
     return (
         <AppBar position="static">
             <Toolbar>
@@ -13,7 +17,8 @@ const MTAppBar = () => {
                 <Typography variant="h6">
                     Money Transfer App
           </Typography>
-                <Button color="inherit">Create Account</Button>
+                <Button color="inherit" onClick={() => history.push('/create')}>Create Account</Button>
+                <Button color="inherit" onClick={() => history.push('/')}>List Account</Button>
             </Toolbar>
         </AppBar>
     );
