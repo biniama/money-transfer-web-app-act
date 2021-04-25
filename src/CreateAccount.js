@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { TextField, Button } from '@material-ui/core';
 import SaveIcon from '@material-ui/icons/Save';
 import axios from 'axios';
+import { API_URL } from './Constants'
 
 const CreateAccount = () => {
 
@@ -21,8 +22,8 @@ const CreateAccount = () => {
         if (isSubmitButtonClicked === true) {
             // make api call
             axios.post(
-                // "https://money-transfer-api-act.herokuapp.com/api/account/create",
-                "http://localhost:8080/api/account/create",
+                API_URL + "/api/account/create",
+                //"http://localhost:8080/api/account/create",
                 {
                     "firstName": firstName,
                     "lastName": lastName,
@@ -82,6 +83,7 @@ const CreateAccount = () => {
 
             <TextField
                 id="pin"
+                type="password"
                 label="Pin"
                 variant="outlined"
                 value={pin}
@@ -92,6 +94,7 @@ const CreateAccount = () => {
 
             <TextField
                 id="confirmPin"
+                type="password"
                 label="Confirm Pin"
                 variant="outlined"
                 value={confirmPin}
